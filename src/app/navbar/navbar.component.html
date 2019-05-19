@@ -1,0 +1,22 @@
+
+    <div color="primary" class="header-nav " >
+      
+      <span class="btMenu" mat-button [matMenuTriggerFor]="menu">
+        <span >
+          <mat-icon color="primary">menu</mat-icon>
+        </span>
+      </span>
+      
+      <mat-menu #menu="matMenu">
+        <button [routerLink]="['/cadastro']" mat-menu-item>Cadastrar tarefa</button>
+        <button [routerLink]="['/listar']" mat-menu-item>Listar tarefas</button>
+      </mat-menu>
+      
+      <span class="centro">Tarefas</span>
+      <span [routerLink]="['/cadastro']" style="float: right; cursor: pointer;"  >
+        <mat-icon color="primary">add_box</mat-icon>
+      </span>
+      <mat-divider></mat-divider>
+    </div>
+
+   

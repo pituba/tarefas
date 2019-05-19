@@ -1,0 +1,19 @@
+
+<form  [formGroup]="form">
+  <div class="content">
+
+      <div><mat-form-field> <input ngModel required formControlName="nome" matInput placeholder="Nome"></mat-form-field></div>
+        <div> <mat-form-field><input  ngModel required formControlName="descricao" matInput placeholder="Descrição"></mat-form-field></div>
+      <div >
+          <mat-checkbox ngModel formControlName="agendado" color="primary" >Agendado</mat-checkbox>
+          <br>
+          <mat-checkbox ngModel formControlName="maquina" color="primary"  >Maquina Reservada</mat-checkbox>
+      </div>
+      <div class="divButton">
+        <button mat-button (click)="CadastraTarefa(form.value)" [disabled]="!form.valid" >Cadastrar</button>
+        <button mat-button (click)="Limpar()" >Limpar</button>
+      </div>
+    </div>
+</form>
+
+  

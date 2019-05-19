@@ -1,0 +1,20 @@
+
+<form  [formGroup]="form1">
+
+    <div class="content">
+  
+        <div><mat-form-field> <input  formControlName="nome" required  matInput placeholder="Nome"></mat-form-field></div>
+          <div> <mat-form-field><input formControlName="descricao"  required  matInput placeholder="Descrição"></mat-form-field></div>
+        <div >
+            <mat-checkbox formControlName="agendado"  color="primary" >Agendado</mat-checkbox>
+            <br>
+            <mat-checkbox formControlName="maquina"  color="primary"  >Maquina Reservada</mat-checkbox>
+        </div>
+        <div class="divButton">
+          <button mat-button (click)="EditarTarefa(form1.value)" [routerLink]="['/listar']">Editar</button>
+          <button mat-button (click)="Cancelar()" >Cancelar</button>
+        </div>
+      </div>
+    </form>
+  
+    
