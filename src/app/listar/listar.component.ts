@@ -20,16 +20,14 @@ export class ListarComponent implements OnInit {
   this.tarefas = this.service.ObterTarefas();
   }
 
+  
   RemoverTarefa(tarefa: Tarefa){
     var index = this.tarefas.indexOf(tarefa);
     if (index > -1) {
       this.tarefas.splice(index, 1);
     }
     this.service.RemoverTarefa(tarefa);    
+    this.ngOnInit();
   }
 
-  EditarTarefa(tarefa : Tarefa){
-    this.tarefa = tarefa;
-    this.editar = true;
-  }
 }

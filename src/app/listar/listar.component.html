@@ -1,6 +1,6 @@
 <div class="content">
 
-<div *ngIf="tarefas">
+<div *ngIf="tarefas && tarefas.length > 0">
     <table mat-table [dataSource]="tarefas" class="mat-elevation-z1">
 
         <ng-container matColumnDef="nome">
@@ -40,4 +40,7 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
+</div>
+<div *ngIf="!tarefas || tarefas.length == 0" class="listaVazia">
+  Não há tarefas, <a [routerLink]="['/cadastro']">clique aqui</a> para cadastrar!
 </div>

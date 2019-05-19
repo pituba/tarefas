@@ -40,7 +40,7 @@ export class TarefaService {
     if(auxList != null && auxList != ""){
       this.listaTarefas = JSON.parse(auxList);
     }
-    tarefa.id = this.listaTarefas.length + 1;
+    tarefa.id = this.listaTarefas.length == 0 ? this.tarefas.length : this.tarefas.length + 1
     this.listaTarefas.push(tarefa);
     window.localStorage.setItem("dbTarefa", JSON.stringify(this.listaTarefas));
   }
