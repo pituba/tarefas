@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Tarefa } from './tarefa.model';
+import { forEach } from '@angular/router/src/utils/collection';
 
 @Injectable({
   providedIn: 'root'
@@ -25,12 +26,17 @@ export class TarefaService {
     return this.tarefas;
   }
 
-  public EditarTarerfa(tarafaNew: Tarefa, tarefa: any){
+  public EditarTarerfa(tarafaNew: Tarefa){
     let auxLista = JSON.parse(localStorage.getItem("dbTarefa"));
-        auxLista[tarefa.id].nome = tarafaNew.nome
-        auxLista[tarefa.id].descricao = tarafaNew.descricao
-        auxLista[tarefa.id].agendado = tarafaNew.agendado
-        auxLista[tarefa.id].maquina = tarafaNew.maquina
+
+   auxLista.forEach(function(value){
+      if(value.id == tarafaNew.id ){
+        value.nome = tarafaNew.nome
+        value.descricao = tarafaNew.descricao
+        value.agendado = tarafaNew.agendado
+        value.maquina = tarafaNew.maquina
+      }
+   })
         localStorage.setItem("dbTarefa", JSON.stringify(auxLista));
   }
 
@@ -40,7 +46,7 @@ export class TarefaService {
     if(auxList != null && auxList != ""){
       this.listaTarefas = JSON.parse(auxList);
     }
-    tarefa.id = this.listaTarefas.length == 0 ? this.tarefas.length : this.tarefas.length + 1
+    tarefa.id = Math.floor(Math.random() * 1000);  
     this.listaTarefas.push(tarefa);
     window.localStorage.setItem("dbTarefa", JSON.stringify(this.listaTarefas));
   }

@@ -9,7 +9,7 @@ const routes: Routes = [
     {path: "cadastro", component: CadastoComponent },
     {path: "", component: ListarComponent },
     {path: "listar", component: ListarComponent },
-    {path: "editar", component: EditarComponent }
+    {path: "editar/:id", component: EditarComponent }
 ];
 
 @NgModule({
